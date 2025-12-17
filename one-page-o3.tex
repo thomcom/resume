@@ -1,0 +1,84 @@
+% One-page principal engineer résumé — Hugh Thomson Comer
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Page & font ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{raleway}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[a4paper,margin=1.5cm,top=1.6cm,bottom=1.4cm]{geometry}
+
+% ---------- Utilities ----------
+\usepackage{enumitem}   % compact lists
+\setlist{nosep,leftmargin=*}
+\usepackage{xcolor}
+\definecolor{linkcol}{RGB}{0,72,135}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Compact section title ----------
+\newcommand{\sectionhead}[1]{%
+  \vspace{6pt}\noindent\textbf{\Large #1}\par\vspace{2pt}}
+
+% ---------- Document ----------
+\begin{document}\small
+
+% ---------- Name & contact ----------
+\begin{center}
+  {\huge\textbf{Hugh Thomson Comer}}\\
+  NVIDIA Cloud GPU Platform Engineer \,--\, Austin, TX \\
+  \href{mailto:thomcom@gmail.com}{thomcom@gmail.com} • 970-310-5396 •
+  \href{https://www.linkedin.com/in/thomcom}{linkedin.com/in/thomcom} •
+  \href{https://github.com/thomcom}{github.com/thomcom}
+\end{center}\vspace{-2pt}
+% ---------- Cover Letter -----
+\sectionhead{Cover Letter}
+Enterprise AI Platform team -- Meghana and colleagues, for the past 18 months I’ve helped build the core of \textit{Cosmos Video Search}, working shoulder-to-shoulder with Francesco Ferroni, Christine Chambers, Sean Pieper, David Lesage, and others. I live across the full stack — React UIs, Kubernetes services, CUDA/Thrust kernels, Python data pipelines, Milvus vector search, and multimodal GenAI. I’ve already filed an Invention Submission (ISF) for a novel GPU-accelerated vector-search algorithm and have shipped RAPIDS libraries that crunch billion-row datasets.
+
+NVIDIA’s next competitive edge is the fusion of fleet-scale GPU datacenters with developer-centric GenAI tooling. I want to architect that control-plane: stateless APIs and RAG workflows that let every team deploy, observe, and iterate on GPU workloads as easily as they git-push code today.
+
+I’m ready to step into a \textbf{Principal} role and help your group deliver the most powerful retrieval-augmented engineering platform in the industry.
+
+% ---------- Summary ----------
+\sectionhead{Summary}
+GPU acceleration, data, and AI have defined my path — from CUDA-driven computer-vision kernels (2007) and color-warp algorithms for multi-projector walls, to RAPIDS libraries that crunch billion-row datasets and the internal blueprints behind NVIDIA’s next wave of GenAI and RAG platforms. Two decades of writing full-stack cloud services and GPU kernels now converge on one goal: architecting developer-centric control-plane APIs that make stateless, fleet-scale GPU acceleration as seamless inside NVIDIA as it is for our customers. I thrive where CUDA kernels, Python APIs, Kubernetes manifests, and WebGL front ends intersect, and I’m ready to help rebuild NVIDIA’s cloud so every team can ship faster on GPUs.
+
+% ---------- Key Skills ----------
+\sectionhead{Key Skills}
+\begin{tabular}{@{}p{3cm}p{13cm}@{}}
+\textbf{Languages} & Python, C++, TypeScript, CUDA, Thrust, Lua, bash/zsh, go  \\
+\textbf{Cloud / DevOps} & Kubernetes, Helm, Docker, Prometheus/Grafana, CI/CD, AWS, Gitlab/Github  \\
+\textbf{GPU / Data} & RAPIDS (cuDF, cuSpatial, nvcomp), Apache Arrow  \\
+\textbf{AI / ML} & RAG, CLIP, Cosmos, Vector Search, Milvus, Vision  \\
+\textbf{Leadership} & Technical roadmap ownership, OSS governance, developer-first APIs, cost optics \\
+\end{tabular}
+
+% ---------- Professional Experience ----------
+\sectionhead{Professional Experience}
+
+\textbf{NVIDIA — Senior Library Software Engineer}\hfill Oct 2018 – Present
+\begin{itemize}
+  \item Designed CVDS blueprint to deploy/scale Milvus/Triton on AWS; suggested as reference for blueprints, and will ship as Cosmos Video Search.
+  \item Created \texttt{cuSpatial}; 15–100×+ faster spatial joins and paths, now default in RAPIDS ecosystem.
+  \item Designed and implemented the majority of \texttt{cudf} slicing/indexing/scatter/groupby operations.
+  \item Built WebGL/FastAPI pipeline streaming 100 M-row data frames at sub-second latency for interactive analytics.
+  \item Authored GeoArrow columnar spec; maintain OSS kernels, speak at GTC/PyData/FOSS4G; patent-pending GPU vector-search + RAG streaming + more.
+\end{itemize}
+
+\textbf{Cardinal Peak — Mobile / IoT Technical Lead}\hfill Jan 2012 – Oct 2018
+\begin{itemize}
+  \item Drove architecture for Bose Lifestyle 650 UI, 510(k) medical EEG platform, and Android/iOS OTT streaming; led cross-functional teams of 5–10 engineers.
+\end{itemize}
+
+\textbf{Early Career Highlights}\hfill 2008 – 2011
+\begin{itemize}
+  \item Invented multi-projector colour-alignment algorithm (US 9,437,160); built OpenGL mobile apps and patented haptic game controller (US 61/599,918).
+\end{itemize}
+
+% ---------- Education ----------
+\sectionhead{Education}
+\textbf{M.Sc.\ Computer Science} — Colorado State University, 2009 \\
+Thesis: Automatic Prediction of Interest-Point Stability (computer vision)
+
+\textbf{B.A.\ Communications (IT)} — Western State College, 2003
+
+\end{document}

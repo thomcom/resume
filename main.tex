@@ -1,0 +1,178 @@
+%====================================================
+%  Thomson Comer – Resume (LaTeX, compile-ready)
+%====================================================
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xifthen}
+\usepackage[default]{raleway}
+\renewcommand*\familydefault{\sfdefault}
+\linespread{1.05}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{moresize}
+
+% ---------- layout ----------
+\usepackage[a4paper]{geometry}
+\geometry{top=4.7cm,bottom=3.8cm,left=3.2cm,right=3.2cm}
+% --- footer placement ---------------------------------------------------
+\setlength{\footskip}{-2.5cm}        % baseline-to-page-edge distance
+\fancyfoot{}                         % clear any old footer definitions
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{-2pt}
+\newlength{\footpageshift}
+\setlength{\footpageshift}{0.5\paperwidth-0.45\textwidth} 
+\lhead{}\chead{\small{
+  Hugh Thomson Comer $\cdot$
+  AI Accelerated Software Architect $\cdot$
+  \textbf{\href{mailto:thomcom@gmail.com}{thomcom@gmail.com}} $\cdot$
+  970 310 5396\\}}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\thepage}{}
+\renewcommand{\thesection}{}
+\setlength{\parindent}{0pt}
+
+% ---------- tables ----------
+\usepackage{multicol,multirow,array}
+\newcolumntype{x}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
+
+% ---------- graphics ----------
+\usepackage{graphicx,wrapfig,float,tikz}
+\usetikzlibrary{shapes,backgrounds,mindmap,trees}
+\usepackage{xcolor}
+\definecolor{sectcol}{RGB}{243,243,243}
+\definecolor{bgcol}{RGB}{150,180,210}
+\definecolor{softcol}{RGB}{225,225,225}
+
+% ---------- glyph helpers ----------
+\newcounter{tglyphcount}\setcounter{tglyphcount}{0}
+\newcommand{\tglyph}[1]{%
+  \stepcounter{tglyphcount}\ifnum\value{tglyphcount}>13\setcounter{tglyphcount}{0}\fi
+  \begin{tikzpicture}
+    \path[use as bounding box] (0,0) rectangle (0.25cm,0.25cm);
+    \node at (0,0.1) {\normalsize\textcolor{#1}{\textbf{%
+      \ifcase\value{tglyphcount}%
+       $\sum$\or$\Delta$\or$\partial$\or$\approx$\or$\int$\or$\geq$\or$\aleph$\or$\nabla$\or$\Re$\or$\Im$\or$\infty$\or$\S$\or$\P$\or$\clubsuit$%
+      \fi}}};
+  \end{tikzpicture}}
+
+% ---------- section & block macros ----------
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt}\colorbox{sectcol}{%
+    \mystrut\makebox[\linewidth][l]{\tglyph{bgcol}\hspace{-11pt}\tglyph{black}\textbf{#1}}}\\}
+
+\newcommand{\retasection}[2]{%
+  \begin{tabular*}{\linewidth}{p{2.4cm}p{8.0cm}}%
+    \tglyph{black}\textcolor{gray}{\textbf{#1}} & #2\\[3pt]%
+  \end{tabular*}}
+
+% ---------- event headers ----------
+\newcommand{\cvevent}[3]{%
+  \hspace{-0.2cm}\begin{tabular*}{\linewidth}{p{2.4cm}p{6.8cm}x{4.5cm}}%
+    \textcolor{bgcol}{#1} & \textbf{#2} & \textcolor{black}{#3}%
+  \end{tabular*}\vspace{-3pt}\textcolor{softcol}{\hrule}\vspace{10pt}}
+
+\newcommand{\cveventms}[3]{%
+  \hspace{-0.2cm}\begin{tabular*}{\linewidth}{p{2.4cm}p{5.7cm}x{5.7cm}}%
+    \textcolor{bgcol}{#1} & \textbf{#2} & \textcolor{black}{#3}%
+  \end{tabular*}\vspace{-3pt}\textcolor{softcol}{\hrule}\vspace{10pt}}
+
+% ---------- detail bullets (left col 1.2 cm) ----------
+\newcommand{\cvdetail}[1]{%
+  \begin{tabular*}{\linewidth}{p{1.2cm}@{}p{0cm}p{12.89cm}}%
+    & \tglyph{black} & \vspace{-8pt}#1\\[3pt]%
+  \end{tabular*}}
+
+\newcommand{\mystrut}{\rule[-.7\baselineskip]{0pt}{\baselineskip}}
+
+%====================================================
+\begin{document}
+
+% ---------- title ----------
+\vspace{-20pt}
+\hspace{-0.25\linewidth}\colorbox{bgcol}{\makebox[1.5\linewidth][c]{%
+  \HUGE\textcolor{white}{\textsc{Thomson Comer\ }}%
+  \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}}%
+  \HUGE\textcolor{white}{\textsc{\ Resume}}}}
+\vspace{6pt}
+\begin{center}
+  \small\textbf{AI-speed architect turning white-paper math into GPU-powered production systems}
+\end{center}
+
+% ---------- headshot ----------
+\begin{figure}[H]
+  \begin{flushright}
+    \vspace{0.5cm}\includegraphics[width=0.2\linewidth]{gtcprof.jpg}
+  \end{flushright}
+\end{figure}
+
+% ---------- meta ----------
+\vspace{-4.6cm}
+\retasection{Status:}{Senior AI Accelerated Software Architect, NVIDIA, M.Sc. CS (all PhD coursework complete)}
+\retasection{Language:}{CUDA/Thrust/C++, Python, TypeScript, Kotlin, Obj-C/Swift, R, LaTeX}
+\retasection{Platform:}{Linux, Docker, AWS | GCP | Azure, Kubernetes, GitHub, NVLink/NVSwitch, MPI/OpenMP}
+\retasection{Framework:}{RAPIDS, cuDF, GeoArrow, PyTorch, React, Flask}
+\retasection{Math:}{Parallel algorithms, GPU data layouts, Machine Learning, Vector Search, Deep Learning}
+\retasection{Activities:}{Family, Homesteading, Cycling, Astronomy, Metaphysics}
+
+% ---------- intro ----------
+\cvsection{Introduction}
+I deliver cutting-edge software at AI speed. Pairing daily with o3, I turn fuzzy ideas into GPU-ready production systems before most teams finish planning. My record spans low-level parallel code, full-stack cloud work, and team leadership grounded in agile, CI/CD, and stateless design. Pairing domain-specific GPU data structures with model teams lets me unlock prediction power that was impossible a year ago.
+
+% ---------- experience ----------
+\cvsection{Experience}
+
+\cvdetail{\textbf{Vector DB Infra Focus}: Bring research-grade rigor to vector-database internals - RAG acceleration, algorithm design, cache-aware layouts, NCCL collectives – while working with model teams instead of cloning their stack.}
+\cvdetail{\textbf{AI Triage In All Things}: Use o3 to turn logs and stack-traces into a clear root-cause summary, freeing me to focus on design and algorithms.}
+
+\cvevent{10/18 – Now}{Senior AI Accelerated Software Architect}{NVIDIA}
+\cvdetail{\textbf{Vector DB Research} – Sole designer of an ANN graph with \textgreater99.999\% recall and 10 µs/query on 4 B vectors, distilled from four years of ideas in 25 o3 prompts.}
+\cvdetail{\textbf{Real-time GPU Visualizer} – Frame-buffer viewer (React + WebGL) that streams 1024-D embeddings live; first 10× productivity leap with o3.}
+\cvdetail{\textbf{Distributed Data Pipelines} – Async multi-GPU DAG that pre-computes feature stores and reuses GPU memory across services, boosting RAPIDS throughput.}
+\cvdetail{\textbf{Cosmos Video Search} – Led a petabyte ingest-to-search stack; mastered AWS and Kubernetes in six months and shipped full Helm/IaC.}
+\cvdetail{\textbf{RAPIDS Core} – Principal engineer for cuDF and cuSpatial; C++/Thrust kernels yield 12 000–16 000× gains and underlie GeoArrow.}
+\cvdetail{\textbf{GPU-Direct I/O \& Compression} – Added kvikio + nvcomp bindings for 40 GB/s Parquet reads with on-GPU LZ4; adopted by DuckDB and Databricks.}
+\\
+\\
+
+\cvevent{01/12 – 10/18}{Mobile \& Full-Stack Lead Engineer}{Cardinal Peak}
+\cvdetail{\textbf{Bose Lifestyle 650 OSD} – Cross-functional owner of the on-screen display; enforced stateless design across ASICs, DSPs, and threads.}
+\cvdetail{\textbf{Yonder Music Platform} – Led full-stack dev and DevOps; brought in agile and CI/CD with tight tests.}
+\cvdetail{Other work: 510(k) EEG hardware (ProNerve), Dell color shader, Samsung Android ML, multi-platform video streaming.}
+
+\cvevent{09/17 – 06/18}{Director of Curriculum}{Lambda School}
+\cvdetail{Designed a six-week CS core and 16-week ML track; left after the first cohort when the pace hit burnout.}
+
+\cvevent{05/08 – 12/11}{Founder / Principal Engineer}{Electric Textiles}
+\cvdetail{Built early Android \& iOS apps (Clip Radio, Blockbuster) and patented the Splat Universal Mobile Controller.}
+
+\cvevent{10/09 – 10/10}{Software Engineer IV}{Mersive Technologies}
+\cvdetail{Invented and patented multi-projector color alignment; robotic imaging plus gradient-descent optimization in test-driven C++.}
+
+% ---------- education ----------
+\cvsection{Education}
+
+\cveventms{2005 – 2009}{M.Sc. Computer Science}{Colorado State University}
+\cvdetail{Thesis: Automatic Prediction of Interest Point Stability (Computer Vision).}
+\cvdetail{Research: neural nets, evolutionary search, dimensionality reduction, DARPA BICA.}
+
+\cvevent{1996 – 2003}{B.A. Communications}{Western State College}
+\cvdetail{Emphasis on engineering communication and management; CS electives in OS, algorithms, databases.}
+
+% ---------- conclusion ----------
+\cvsection{Conclusion}
+Ready to bring AI-accelerated engineering to finance: real-time GPU systems that move at market speed while keeping teams and code healthy.
+
+\fancyfoot[C]{%
+  \hspace*{-\footpageshift}
+  \colorbox{bgcol}{\makebox[1.5\linewidth][c]{%
+    \mystrut\small
+    Hugh Thomson Comer Jr\;
+    \href{mailto:thomcom@gmail.com}{thomcom@gmail.com}\ $\cdot$\ 
+    \href{https://www.linkedin.com/in/thomcom}{linkedin.com/in/thomcom}\ $\cdot$\ 
+    \href{https://github.com/thomcom}{github.com/thomcom}}}}
+
+\end{document}
